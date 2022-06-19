@@ -1,5 +1,8 @@
 package Kanlaya_51TestCasePages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -188,6 +191,9 @@ public class MyAccountPage {
 	@FindBy(xpath = "//*[@class ='woocommerce']/div[1]")
 	public WebElement addressChangedMsg;
 
+	@FindBy(xpath = "//*[@id=\"select2-result-label-460\"]/span")
+	private WebElement india;
+
 	public void verifyNoOrder() {
 		String noOrderText = goShopButton.getText();
 		String expectedNoOrderText = Base.getProperty("goShopText");
@@ -341,5 +347,33 @@ public class MyAccountPage {
 
 	public void clickAccountDetailsBtn() {
 		accountDetailsButton.click();
+	}
+	
+
+	public void shippingIndia() throws InterruptedException {
+		billingNameField.clear();
+		billingNameField.sendKeys(Base.getProperty("billingName"));
+		billingLastNameField.clear();
+		billingLastNameField.sendKeys(Base.getProperty("billingLastName"));
+		billingCompanyField.sendKeys(Base.getProperty("companyName"));
+		billingEmailField.sendKeys(Base.getProperty("email"));
+		billingPhoneField.sendKeys(Base.getProperty("phone"));
+		Thread.sleep(2000);
+		billingCountryDropDown.click();
+		billingCountrySearchBox.sendKeys("india");
+		india.click();
+		Thread.sleep(2000);
+		billingAddressField1.clear();
+		billingAddressField1.sendKeys(Base.getProperty("address1"));
+		billingAddressField2.clear();
+		billingAddressField2.sendKeys(Base.getProperty("address2"));
+		billingCityField.sendKeys(Base.getProperty("city"));
+		billingStateDropDown.click();
+		billingStateSearchBox.sendKeys("Assam");
+		Thread.sleep(2000);
+		billingStateSearchBox.sendKeys(Keys.RETURN);
+		billingZipCodeBox.clear();
+		billingZipCodeBox.sendKeys(Base.getProperty("zipCode"));
+
 	}
 }

@@ -6,17 +6,9 @@
       <class name="Kanlaya_51TestCaseTests.ShopTests">
         <methods>
           <include name="tearDown"/>
-          <include name="shopSortingByHighToLowFunctionality"/>
-          <include name="shopSortingByNewnessFunctionality"/>
-          <include name="ShopAddtoBasketViewBasketthroughItemlink"/>
-          <include name="ShopAddtoBasketViewBasketFunctionality"/>
           <include name="setUp"/>
-          <include name="ShopReadMoreFunctionality"/>
-          <include name="shopSortingByLowToHighFunctionality"/>
-          <include name="ShopSaleFunctionality"/>
-          <include name="ShopSortingByPopularityFunctionality"/>
+          <include name="TaxIndia"/>
           <include name="beforeMethod"/>
-          <include name="shopSortingByAverageRatingsFunctionality"/>
         </methods>
       </class> <!-- Kanlaya_51TestCaseTests.ShopTests -->
     </classes>

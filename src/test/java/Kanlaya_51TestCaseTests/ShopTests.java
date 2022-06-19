@@ -121,6 +121,43 @@ public class ShopTests {
 		   homePage.orderConfirmation();
 	   }
 	   
+	   @Test(priority = 12)
+	   public void ShopAddtoBasketViewBasketTaxFunctionality() throws InterruptedException{
+		   shopPage.addToBasketButton();
+		   shopPage.viewBasketButton();
+		   shopPage.verifyCartItemsProduct();
+		   shopPage.verifyCartTotal();
+		   homePage.total();
+		   homePage.subtotal();
+		   homePage.verifyTotalAlwaysMoreThanSubTotal();
+		   homePage.clickCheckoutBtn();
+		   homePage.verifyCheckoutBillingDetails();
+		   homePage.verifyCheckoutOrdersDetails();
+		   homePage.verifyCheckoutAdditionalInfoDetails();
+		   homePage.verifyPaymentGateway();
+		   accountPage.shippingIndia(); 
+		   shopPage.verifyIndianTax();
+	   }
+	   
+	   @Test(priority = 13)
+	   public void RoamingTax() throws InterruptedException {
+		   shopPage.addToBasketButton();
+		   shopPage.viewBasketButton();
+		   shopPage.verifyCartItemsProduct();
+		   shopPage.verifyCartTotal();
+		   homePage.total();
+		   homePage.subtotal();
+		   homePage.verifyTotalAlwaysMoreThanSubTotal();
+		   homePage.clickCheckoutBtn();
+		   homePage.verifyCheckoutBillingDetails();
+		   homePage.verifyCheckoutOrdersDetails();
+		   homePage.verifyCheckoutAdditionalInfoDetails();
+		   homePage.verifyPaymentGateway();
+		   accountPage.verifyBillingAddressFunctionallity();
+		   shopPage.verifyRoamingTax();
+	   }
+	   
+	   
 	   @AfterClass
 	   public void tearDown() {
 		   Base.teardown();
@@ -128,6 +165,3 @@ public class ShopTests {
 
 }
 
-/*
-12. Shop-Add to Basket-View Basket-Tax Functionality
-*/

@@ -74,6 +74,20 @@ public class ShopPage {
 	@FindBy(xpath = "//*[@id=\"page-34\"]/div/div[1]/div/div/table/tbody/tr[1]")
 	public WebElement cartSubtotal;
 
+
+	@FindBy(xpath = "//*[@id=\"order_review\"]/table/tfoot/tr[2]/td/span")
+	public WebElement tax;
+	
+	@FindBy(xpath = "//*[@class = 'cart-subtotal']/td/span")
+	public WebElement subTotal;
+
+	@FindBy(xpath = "//*[@class = 'order-total']/td/strong")
+	public WebElement total;
+
+
+	
+	
+	
 	
 	public void adjustPriceFilter() {
 		
@@ -192,5 +206,38 @@ public class ShopPage {
 		String ExpectedTitle = "Thank you. Your order has been received.";
 		Assert.assertNotEquals(ActualTitle, ExpectedTitle);
 	}
-
+	
+	
+	
+	
+	public void verifyIndianTax() {
+		double subTotalPrice =  Double.parseDouble(subTotal.getText().substring(1));
+		System.out.println("Subtotal: "+subTotalPrice);
+		
+		double indiaTax = subTotalPrice * 0.02;
+		System.out.println("India tax :"+indiaTax);
+		
+		double exptdIndiaTax = Double.parseDouble(tax.getText().substring(1));
+		System.out.println("Expected India tax : "+ exptdIndiaTax);
+		Assert.assertEquals(indiaTax, exptdIndiaTax);
+		
+		
+	}
+	
+	public void verifyRoamingTax() {
+		double subTotalPrice =  Double.parseDouble(subTotal.getText().substring(1));
+		System.out.println("Subtotal: "+subTotalPrice);
+		
+		double roamingTax = subTotalPrice * 0.05;
+		System.out.println("India tax :"+roamingTax);
+		
+		double exptdRoamingTax = Double.parseDouble(tax.getText().substring(1));
+		System.out.println("Expected India tax : "+ exptdRoamingTax);
+		Assert.assertEquals(roamingTax, exptdRoamingTax);
+		
+		
+	}
+	
 }
+
+
